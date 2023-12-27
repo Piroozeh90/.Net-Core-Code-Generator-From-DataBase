@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BPC.CodeGenerator": {
+      "commandName": "Project",
+      "commandLineArgs": "generate -c  \"Server=51.75.169.238;Initial Catalog=Product;User Id=SelectedConnector;Password=BPC!qaz1\""
+    }
+  }
+}

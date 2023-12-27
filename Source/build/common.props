@@ -1,0 +1,33 @@
+<Project>
+  <Import Project="version.props" />
+
+  <PropertyGroup Label="Source Link">
+    <ProjectParentDirectory>$([System.IO.Path]::GetDirectoryName('$(MSBuildProjectDirectory)'))</ProjectParentDirectory>
+    <ProjectParentDirectoryName>$([System.IO.Path]::GetFileName('$(ProjectParentDirectory)'))</ProjectParentDirectoryName>
+  </PropertyGroup>
+
+  <Import Project="sourcelink.props" Condition="'$(ProjectParentDirectoryName)' == 'src'" />
+
+  <PropertyGroup Label="Package">
+    <Product>BPC.CodeGenerator</Product>
+    <Title>BPC.CodeGenerator</Title>
+    <Description>
+      .NET Core command-line (CLI) tool to generate Entity Framework Core source files.
+      This package has been customized by BPC backend team.
+
+      The original package is available at the following link:
+      https://github.com/loresoft/EntityFrameworkCore.Generator
+      
+    </Description>
+    <Copyright>Copyright © $([System.DateTime]::Now.ToString(yyyy)) BPC</Copyright>
+    <Authors>BPC Backend Team</Authors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageTags></PackageTags>
+    <PackageOutputPath>../artifacts</PackageOutputPath>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <RepositoryType></RepositoryType>
+    <RepositoryUrl></RepositoryUrl>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\build\common.props" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+	  <TargetFramework>net7.0</TargetFramework>
+	  <ToolCommandName>ecg</ToolCommandName>
+    <PackAsTool>true</PackAsTool>
+    <PackageId>BPC.Generator</PackageId>
+    <Product>BPC.CodeGenerator</Product>
+    <Description>
+      .NET Core command-line (CLI) tool to generate Entity Framework Core source files.
+      This package has been customized by BPC backend team.
+
+      The original package is available at the following link:
+      https://github.com/loresoft/EntityFrameworkCore.Generator
+      
+    </Description>
+    <Authors>BPC Backend Team</Authors>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1591,EF1001</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1591,EF1001</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="3.0.0" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="3.1.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BPC.CodeGenerator.Core\BPC.CodeGenerator.Core.csproj" />
+  </ItemGroup>
+
+</Project>

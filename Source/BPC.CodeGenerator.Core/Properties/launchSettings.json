@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BPC.CodeGenerator.Core": {
+      "commandName": "Project",
+      "commandLineArgs": "generate"
+    }
+  }
+}

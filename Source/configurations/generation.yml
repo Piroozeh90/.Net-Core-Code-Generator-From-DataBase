@@ -1,0 +1,94 @@
+project:
+  namespace: '{Database.Name}'
+  directory: .\
+database:
+  provider: SqlServer
+  tableNaming: Singular
+  tables: []
+  schemas: []
+  exclude: []
+
+script: 
+  context:
+    # - templatePath: '.\Templates\context.csx'          # path to script file
+      # fileName: 'DbContext.cs'                         # filename to save script output
+      # directory: '{Project.Directory}\GeneratedCodes\Data'  # directory to save script output
+      # namespace: '{Project.Namespace}.Data.Context'  
+      # baseClass: ContextScriptBase
+      # overwrite: true                                  # overwrite existing file     
+  entity:
+    - templatePath: '.\Templates\entity.csx'           # path to script file
+      fileName: '{Entity.Name}.cs'               # filename to save script output
+      directory: '{Project.Directory}\GeneratedCodes\Data\Domains'   # directory to save script output
+      namespace: '{Project.Namespace}.Data.Domains'  
+      baseClass: EntityScriptBase
+      overwrite: true                                  # overwrite existing file   
+    - templatePath: '.\Templates\mapping.csx'           # path to script file
+      fileName: '{Entity.Name}Map.cs'               # filename to save script output
+      directory: '{Project.Directory}\GeneratedCodes\Data\Mappings'   # directory to save script output
+      namespace: '{Project.Namespace}.Data.Mappings'  
+      baseClass: EntityScriptBase
+      overwrite: true                                  # overwrite existing file   
+    - templatePath: '.\Templates\mapper-param.csx'           # path to script file
+      fileName: '{Entity.Name}Mapper.cs'               # filename to save script output
+      directory: '{Project.Directory}\\GeneratedCodes\APIClient\V1\Mappings'   # directory to save script output
+      namespace: '{Project.Namespace}.APIClient.V1.Mappings'  
+      baseClass: EntityScriptBase
+      overwrite: true                                  # overwrite existing file
+    - templatePath: '.\Templates\mapper-dto.csx'           # path to script file
+      fileName: '{Entity.Name}Mapper.cs'               # filename to save script output
+      directory: '{Project.Directory}\GeneratedCodes\Services\Mappings'   # directory to save script output
+      namespace: '{Project.Namespace}.Services.Mappings'  
+      baseClass: EntityScriptBase
+      overwrite: true                                  # overwrite existing file
+    - templatePath: '.\Templates\iservice.csx'           # path to script file
+      fileName: 'I{Entity.Name}Service.cs'               # filename to save script output
+      directory: '{Project.Directory}\GeneratedCodes\Services\IServices'   # directory to save script output
+      namespace: '{Project.Namespace}.Services.IServices'  
+      baseClass: 
+      overwrite: true                                  # overwrite existing file  
+    - templatePath: '.\Templates\service.csx'           # path to script file
+      fileName: '{Entity.Name}Service.cs'               # filename to save script output
+      directory: '{Project.Directory}\GeneratedCodes\Services\Services' 
+      namespace: '{Project.Namespace}.Services.Services'  
+      baseClass: BaseServiceProvider
+      overwrite: true                                  # overwrite existing file 
+    - templatePath: '.\Templates\controller.csx'           # path to script file
+      fileName: '{Entity.Name}Controller.cs'               # filename to save script output
+      directory: '{Project.Directory}\GeneratedCodes\APIClient\V1\Controllers' 
+      namespace: '{Project.Namespace}.APIClient.V1.Controllers'  
+      baseClass: BaseApiV1Controller
+      overwrite: true                                  # overwrite existing file   
+    - templatePath: '.\Templates\dto.csx'           # path to script file
+      fileName: '{Entity.Name}Dto.cs'               # filename to save script output
+      directory: '{Project.Directory}\GeneratedCodes\Services\Models\Results'   # directory to save script output
+      namespace: '{Project.Namespace}.Services.Models.Results'  
+      baseClass: EntityScriptBase
+      overwrite: true                                  # overwrite existing file         
+        
+  model:
+    - templatePath: '.\Templates\add-model.csx'            # path to script file
+      #fileName: '{Model.Name}AddModel.cs'                # filename to save script output
+      fileName: '{Model.Name}AddModel.cs'
+      directory: '{Project.Directory}\GeneratedCodes\APIClient\V1\Models\Parameters'   # directory to save script output
+      namespace: '{Project.Namespace}.APIClient.V1.Models.Parameters'  
+      baseClass: ModelScriptBase
+      overwrite: true                                  # overwrite existing file     
+    #- templatePath: '.\Templates\update-model.csx'            # path to script file
+    #  fileName: '{Model.Name}UpdateModel.cs'
+    #  directory: '{Project.Directory}\GeneratedCodes\APIClient\V1\Models\Parameters'   # directory to save script output
+    #  namespace: '{Project.Namespace}.APIClient.V1.Models.Parameters'
+    #  baseClass: ModelScriptBase
+    #  overwrite: true                                  # overwrite existing file         
+    - templatePath: '.\Templates\add-validator.csx'            # path to script file
+      fileName: '{Model.Name}AddModelValidator.cs'                # filename to save script output
+      directory: '{Project.Directory}\GeneratedCodes\APIClient\V1\Validators'   # directory to save script output
+      namespace: '{Project.Namespace}.APIClient.V1.Validators'  
+      baseClass: ModelScriptBase
+      overwrite: true                                  # overwrite existing file  
+    #- templatePath: '.\Templates\update-validator.csx'            # path to script file
+    #  fileName: '{Model.Name}UpdateModelValidator.cs'                # filename to save script output
+    #  directory: '{Project.Directory}\GeneratedCodes\APIClient\V1\Validators'   # directory to save script output
+    #  namespace: '{Project.Namespace}.APIClient.V1.Validators'  
+    #  baseClass: ModelScriptBase
+    #  overwrite: true                                  # overwrite existing file        
